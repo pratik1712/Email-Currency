@@ -1,0 +1,11 @@
+This Project adds a plugin to include the following functionalities:
+
+1. Include an additional column listing the currency attached to the mails by the sender specifing the importance of the Email relative to the sender
+
+2. Include a Display Box Specifing the remaining Currency left with the user for the current day.
+
+3. Include an additional input from user while sending the Email, to add the currency propotinal to the importance of the mail for them
+
+4. Inclusion of additiona Header representing the currency attached to the mail, used in the 1.
+
+
