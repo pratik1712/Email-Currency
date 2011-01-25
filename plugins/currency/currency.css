@@ -1,0 +1,12 @@
+#messagelist tr td.currency
+{
+  width: 120px;
+  padding: 0px 2px 1px 2px;
+  text-align: center;
+}
+
+#messagelist input[type="button"]
+{
+  width: 100px;
+  
+}

@@ -1,0 +1,72 @@
+[21-Jan-2011 13:31:56] Invalid response code received from server (535): 
+[21-Jan-2011 13:31:57 +0530]: SMTP Error: SMTP error: Authentication failure: Invalid response code received from server (Code: 535) in /var/www/roundcubemail/program/steps/mail/func.inc on line 1479 (POST /roundcubemail/?_unlock=loading1295596908751?_task=mail&_action=send)
+[21-Jan-2011 14:08:54] MDB2 Error: connect failed (-24): _doConnect: [Error message: Access denied for user 'roundcube'@'localhost' (using password: YES)]
+[Native code: 1045]
+[Native message: Access denied for user 'roundcube'@'localhost' (using password: YES)]
+
+[21-Jan-2011 14:08:54 +0530]: DB Error: _doConnect: [Error message: Access denied for user 'roundcube'@'localhost' (using password: YES)]
+[Native code: 1045]
+[Native message: Access denied for user 'roundcube'@'localhost' (using password: YES)]
+ ** mysql(mysql)://roundcube:xxx@localhost/roundcubemail in /var/www/roundcubemail/program/include/rcube_mdb2.php on line 101 (GET /roundcubemail/)
+[21-Jan-2011 14:08:55] MDB2 Error: connect failed (-24): _doConnect: [Error message: Access denied for user 'roundcube'@'localhost' (using password: YES)]
+[Native code: 1045]
+[Native message: Access denied for user 'roundcube'@'localhost' (using password: YES)]
+
+[21-Jan-2011 14:08:55 +0530]: DB Error: _doConnect: [Error message: Access denied for user 'roundcube'@'localhost' (using password: YES)]
+[Native code: 1045]
+[Native message: Access denied for user 'roundcube'@'localhost' (using password: YES)]
+ ** mysql(mysql)://roundcube:xxx@localhost/roundcubemail in /var/www/roundcubemail/program/include/rcube_mdb2.php on line 101 (GET /roundcubemail/)
+[21-Jan-2011 14:08:55] MDB2 Error: connect failed (-24): _doConnect: [Error message: Access denied for user 'roundcube'@'localhost' (using password: YES)]
+[Native code: 1045]
+[Native message: Access denied for user 'roundcube'@'localhost' (using password: YES)]
+
+[21-Jan-2011 14:08:55 +0530]: DB Error: _doConnect: [Error message: Access denied for user 'roundcube'@'localhost' (using password: YES)]
+[Native code: 1045]
+[Native message: Access denied for user 'roundcube'@'localhost' (using password: YES)]
+ ** mysql(mysql)://roundcube:xxx@localhost/roundcubemail in /var/www/roundcubemail/program/include/rcube_mdb2.php on line 101 (GET /roundcubemail/)
+[21-Jan-2011 14:55:14 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_mbox=INBOX&_refresh=1)
+[21-Jan-2011 14:55:18 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_remote=1&_action=list&_mbox=INBOX&_refresh=1&_=1295601918940&_unlock=loading1295601918938)
+[21-Jan-2011 14:55:18 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_remote=1&_action=getunread&_=1295601918944&_unlock=0)
+[21-Jan-2011 14:55:29 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_action=preview&_uid=28&_mbox=INBOX&_framed=1)
+[21-Jan-2011 14:55:30 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_action=show&_uid=28&_mbox=INBOX)
+[21-Jan-2011 14:55:31 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_action=preview&_uid=29&_mbox=INBOX&_framed=1)
+[21-Jan-2011 14:55:32 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_action=preview&_uid=30&_mbox=INBOX&_framed=1)
+[21-Jan-2011 14:55:32 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_action=show&_uid=29&_mbox=INBOX)
+[21-Jan-2011 14:55:32 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_action=preview&_uid=29&_mbox=INBOX&_framed=1)
+[21-Jan-2011 14:55:33 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_action=show&_uid=29&_mbox=INBOX)
+[21-Jan-2011 14:55:34 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_action=preview&_uid=29&_mbox=INBOX&_framed=1)
+[21-Jan-2011 14:55:35 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_action=preview&_uid=29&_mbox=INBOX&_framed=1)
+[21-Jan-2011 14:55:38 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_remote=1&_action=pagenav&_uid=29&_mbox=INBOX&_=1295601938679&_unlock=loading1295601938677)
+[21-Jan-2011 14:55:38 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_remote=1&_action=getunread&_=1295601938683&_unlock=0)
+[21-Jan-2011 14:55:41 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_mbox=INBOX&_refresh=1)
+[21-Jan-2011 14:55:45 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_remote=1&_action=list&_mbox=INBOX&_refresh=1&_=1295601945133&_unlock=loading1295601945131)
+[21-Jan-2011 14:55:45 +0530]: PHP Error: Invalid callback function for messages_list in /var/www/roundcubemail/program/include/rcube_plugin_api.php on line 215 (GET /roundcubemail/?_task=mail&_remote=1&_action=getunread&_=1295601945137&_unlock=0)
+[21-Jan-2011 15:00:15] PHP Parse error:  syntax error, unexpected T_AS in /var/www/roundcubemail/plugins/currency/currency.php on line 21
+[21-Jan-2011 15:01:15] PHP Parse error:  syntax error, unexpected T_AS in /var/www/roundcubemail/plugins/currency/currency.php on line 21
+[21-Jan-2011 15:01:47] PHP Parse error:  syntax error, unexpected T_AS in /var/www/roundcubemail/plugins/currency/currency.php on line 21
+[21-Jan-2011 15:01:53] PHP Parse error:  syntax error, unexpected T_AS in /var/www/roundcubemail/plugins/currency/currency.php on line 21
+[21-Jan-2011 15:02:05] PHP Parse error:  syntax error, unexpected T_AS in /var/www/roundcubemail/plugins/currency/currency.php on line 21
+[21-Jan-2011 15:02:55 +0530]: IMAP Error: Login failed for pratik.mishra@web2labs.net from ::1. Could not connect to ssl://imap.googlemail.com:993: Connection timed out in /var/www/roundcubemail/program/include/rcube_imap.php on line 183 (GET /roundcubemail/?_task=mail&_mbox=INBOX&_refresh=1)
+[21-Jan-2011 15:03:56 +0530]: IMAP Error: Login failed for pratik.mishra@web2labs.net from ::1. Could not connect to ssl://imap.googlemail.com:993: php_network_getaddresses: getaddrinfo failed: Name or service not known in /var/www/roundcubemail/program/include/rcube_imap.php on line 183 (POST /roundcubemail/?_task=login&_action=login)
+[21-Jan-2011 15:05:48] PHP Parse error:  syntax error, unexpected T_AS in /var/www/roundcubemail/plugins/currency/currency.php on line 21
+[21-Jan-2011 15:06:10] PHP Parse error:  syntax error, unexpected T_FOR in /var/www/roundcubemail/plugins/currency/currency.php on line 25
+[21-Jan-2011 15:06:12] PHP Parse error:  syntax error, unexpected T_FOR in /var/www/roundcubemail/plugins/currency/currency.php on line 25
+[21-Jan-2011 15:06:12] PHP Parse error:  syntax error, unexpected T_FOR in /var/www/roundcubemail/plugins/currency/currency.php on line 25
+[21-Jan-2011 15:06:12] PHP Parse error:  syntax error, unexpected T_FOR in /var/www/roundcubemail/plugins/currency/currency.php on line 25
+[21-Jan-2011 15:11:41] PHP Parse error:  syntax error, unexpected '=' in /var/www/roundcubemail/plugins/currency/currency.php on line 28
+[21-Jan-2011 15:11:48] PHP Parse error:  syntax error, unexpected '=' in /var/www/roundcubemail/plugins/currency/currency.php on line 28
+[21-Jan-2011 15:12:50] PHP Parse error:  syntax error, unexpected '=' in /var/www/roundcubemail/plugins/currency/currency.php on line 28
+[21-Jan-2011 15:25:39 +0530]: IMAP Error: Login failed for pratik.mishra@web2labs.net from ::1. Could not connect to ssl://imap.googlemail.com:993: php_network_getaddresses: getaddrinfo failed: Name or service not known in /var/www/roundcubemail/program/include/rcube_imap.php on line 183 (GET /roundcubemail/?_task=mail&_mbox=INBOX&_refresh=1)
+[21-Jan-2011 15:28:32] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW, expecting ']' in /var/www/roundcubemail/plugins/currency/currency.php on line 27
+[21-Jan-2011 16:33:00 +0530]: IMAP Error: Login failed for pratik.mishra@web2labs.net from ::1. Could not connect to ssl://imap.googlemail.com:993:  in /var/www/roundcubemail/program/include/rcube_imap.php on line 183 (GET /roundcubemail/?_task=mail&_remote=1&_action=check-recent&_t=1295607739085&_mbox=INBOX&_list=1&_quota=1&_=1295607739086&_unlock=0)
+[21-Jan-2011 16:34:44] PHP Parse error:  syntax error, unexpected T_FOR in /var/www/roundcubemail/plugins/currency/currency.php on line 28
+[21-Jan-2011 16:43:16 +0530]: IMAP Error: Login failed for pratik.mishra@web2labs.net from ::1. Could not connect to ssl://imap.googlemail.com:993: php_network_getaddresses: getaddrinfo failed: Name or service not known in /var/www/roundcubemail/program/include/rcube_imap.php on line 183 (GET /roundcubemail/?_task=mail&_remote=1&_action=check-recent&_t=1295608375390&_mbox=INBOX&_list=1&_quota=1&_=1295608375391&_unlock=0)
+[24-Jan-2011 12:09:21] PHP Parse error:  syntax error, unexpected T_ELSEIF in /var/www/roundcubemail/plugins/additional_message_headers/additional_message_headers.php on line 33
+[24-Jan-2011 12:23:11 +0530]: IMAP Error: Login failed for pratik.mishra@web2labs.net from ::1. Could not connect to ssl://imap.googlemail.com:993: php_network_getaddresses: getaddrinfo failed: Name or service not known in /var/www/roundcubemail/program/include/rcube_imap.php on line 183 (GET /roundcubemail/?_task=mail&_remote=1&_action=check-recent&_t=1295851950986&_mbox=INBOX&_list=1&_quota=1&_=1295851950986&_unlock=0)
+[24-Jan-2011 12:33:48] PHP Parse error:  syntax error, unexpected $end, expecting T_FUNCTION in /var/www/roundcubemail/plugins/currency/currency.php on line 46
+[24-Jan-2011 12:49:56] PHP Parse error:  syntax error, unexpected '}' in /var/www/roundcubemail/plugins/currency/currency.php on line 38
+[24-Jan-2011 12:50:16] PHP Parse error:  syntax error, unexpected '}' in /var/www/roundcubemail/plugins/currency/currency.php on line 38
+[24-Jan-2011 12:50:23] PHP Parse error:  syntax error, unexpected '}' in /var/www/roundcubemail/plugins/currency/currency.php on line 38
+[24-Jan-2011 14:15:10] PHP Fatal error:  Cannot use object of type rcube_mail_header as array in /var/www/roundcubemail/plugins/currency/currency.php on line 35
+[24-Jan-2011 14:16:07] PHP Fatal error:  Cannot use object of type rcube_mail_header as array in /var/www/roundcubemail/plugins/currency/currency.php on line 35
+[24-Jan-2011 14:28:40 +0530]: IMAP Error: Login failed for pratik.mishra@web2labs.net from ::1. Could not connect to ssl://imap.googlemail.com:993: Connection timed out in /var/www/roundcubemail/program/include/rcube_imap.php on line 183 (GET /roundcubemail/?_task=mail&_remote=1&_action=check-recent&_t=1295859494616&_mbox=INBOX&_list=1&_quota=1&_=1295859494618&_unlock=0)
