@@ -28,7 +28,6 @@ class currency extends rcube_plugin {
 		$this->add_hook('message_outgoing_headers', array($this, 'message_headers'));
 	}
 
-
 	function message_list($args){
 		// Number of messages
 		$count = count($args['messages']);
@@ -43,6 +42,7 @@ class currency extends rcube_plugin {
 
 		// Currency available with the user
 		$mycurrency = $ret['curr_available'];
+		$rcmail->output->set_env('user_curr_avail', $mycurrency);
 		
 		for ($i=0;$i<$count;$i++) {
 			$newval = null;
@@ -66,7 +66,7 @@ class currency extends rcube_plugin {
 		$additional_headers = rcmail::get_instance()->config->get('list_headers',array());
 		foreach($additional_headers as $header=>$value){
 			if('Currency-Attached' === $value){
-			$args['headers'][$value] = 'My Currency';
+			$args['headers'][$value] = '3';
 			}
 			else {
 			unset($args['headers'][$header]);
