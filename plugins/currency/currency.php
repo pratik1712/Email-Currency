@@ -20,6 +20,8 @@ class currency extends rcube_plugin {
 
 		// Adding hooks
 		
+		$this->add_hook('template_object_messagemenulink',array($this, 'my_menu'));
+		
 		// Fetching the values form the header @ list view
 		$this->add_hook('messages_list', array($this, 'message_list'));
 		// Adding additional headers to be fetched
@@ -27,7 +29,11 @@ class currency extends rcube_plugin {
 		// Adding additional headers before sending the mail
 		$this->add_hook('message_outgoing_headers', array($this, 'message_headers'));
 	}
-
+	
+	function my_menu($args){
+		
+	}
+	
 	function message_list($args){
 		// Number of messages
 		$count = count($args['messages']);
