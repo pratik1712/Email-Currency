@@ -16,11 +16,16 @@ class currency extends rcube_plugin {
 		if (($rcmail->task == 'mail') && ($rcmail->action == '')) {
 			$this->include_script('currency.js');
 		}
+
+		if($rcmail->action == 'compose') {      
+     		$this->composemail_init();      
+    	}
+
 		$this->include_stylesheet("currency.css");
 
 		// Adding hooks
 		
-		$this->add_hook('template_object_messagemenulink',array($this, 'my_menu'));
+		$this->add_hook('template_object_composesubject',array($this, 'compose_header_currency'));		
 		
 		// Fetching the values form the header @ list view
 		$this->add_hook('messages_list', array($this, 'message_list'));
@@ -30,9 +35,57 @@ class currency extends rcube_plugin {
 		$this->add_hook('message_outgoing_headers', array($this, 'message_headers'));
 	}
 	
-	function my_menu($args){
+	function composemail_init(){
+		$rcmail = rcmail::get_instance();
+		$this->include_script('currency_compose.js');
+		
+		$skin_path = $this->local_skin_path();		
+		$this->add_texts('localization', true);
+
+		$rcmail->output->set_env('user_curr_fixed', 0);		
+
+		// Current user id
+		$myid = $rcmail->user->ID;
+		// Formulating query and fetching currency available
+		$query = "SELECT curr_available FROM users WHERE user_id=?";
+		$rcmail->db->query($query,$myid);
+		$ret = $rcmail->db->fetch_assoc();
+
+		// Currency available with the user
+		$mycurrency = $ret['curr_available'];
+
+
+		$this->add_button(array(
+		'command' => 'plugin.currencyleft',
+		'label' => $this->gettext('currency.plugin_currencyleft') . ": " . $mycurrency,
+		'title' => 'currency.plugin_currencyleft',
+		'id' => 'rcmbtn_compose_currency'), 'toolbar');
+
 		
 	}
+	
+	function compose_header_currency($args){
+		$new_div = '
+			<tr>
+			<td class="title">Currency</td>
+			<td class="editfield">
+			<input type="radio" name="_currency" id="compose-currency-0" tabindex="9" value="0" checked = true> 0 </input>
+			<input type="radio" name="_currency" id="compose-currency-1" tabindex="9" value="1"> 1 </input>
+			<input type="radio" name="_currency" id="compose-currency-2" tabindex="9" value="2"> 2 </input>
+			<input type="radio" name="_currency" id="compose-currency-3" tabindex="9" value="3"> 3 </input>
+			<input type="radio" name="_currency" id="compose-currency-4" tabindex="9" value="4"> 4 </input>
+			<input type="radio" name="_currency" id="compose-currency-5" tabindex="9" value="5"> 5 </input>
+			</td>
+			</tr>
+			';		
+
+		$div = $args['content'];
+		$args['content'] = $div . $new_div ;
+		
+		return $args;
+	}
+
+	
 	
 	function message_list($args){
 		// Number of messages

@@ -10,3 +10,11 @@
   width: 100px;
 }
 
+
+#compose-div {
+	top: 130px !important;
+}
+
+#compose-currency{
+	margin-left: 50px;
+}
