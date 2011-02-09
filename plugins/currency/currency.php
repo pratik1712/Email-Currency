@@ -1,8 +1,8 @@
 <?php
-
 class currency extends rcube_plugin {
 	public $task = 'mail';
 	public $newval = null;
+	public $new_user_default = 100;
 	/**
 	 *@purpose : to attach hooks, stylesheet and scripts 
 	 *@arguments : NA
@@ -10,23 +10,27 @@ class currency extends rcube_plugin {
 	 */
 	function init() {
 		$rcmail = rcmail::get_instance();
-
-		// Adding stylesheet and scripts
-
-		if (($rcmail->task == 'mail') && ($rcmail->action == '')) {
-			$this->include_script('currency.js');
-		}
-
+		
+		// Adding functionalities for compose window
 		if($rcmail->action == 'compose') {      
      		$this->composemail_init();      
     	}
 
+		// Adding stylesheet and scripts
+		if (($rcmail->task == 'mail') && ($rcmail->action == '')) {
+			$this->include_script('currency.js');
+		}
 		$this->include_stylesheet("currency.css");
 
-		// Adding hooks
-		
+		/**
+		 * Adding hooks
+		 */
+
+		// Adding the Currency Selection in the HTML
 		$this->add_hook('template_object_composesubject',array($this, 'compose_header_currency'));		
 		
+
+		//$this->add_hook('user_create',array($this, 'user_create_currency'));
 		// Fetching the values form the header @ list view
 		$this->add_hook('messages_list', array($this, 'message_list'));
 		// Adding additional headers to be fetched
@@ -35,17 +39,13 @@ class currency extends rcube_plugin {
 		$this->add_hook('message_outgoing_headers', array($this, 'message_headers'));
 	}
 	
+
 	function composemail_init(){
 		$rcmail = rcmail::get_instance();
-		$this->include_script('currency_compose.js');
-		
-		$skin_path = $this->local_skin_path();		
-		$this->add_texts('localization', true);
-
-		$rcmail->output->set_env('user_curr_fixed', 0);		
-
+	
 		// Current user id
 		$myid = $rcmail->user->ID;
+
 		// Formulating query and fetching currency available
 		$query = "SELECT curr_available FROM users WHERE user_id=?";
 		$rcmail->db->query($query,$myid);
@@ -53,20 +53,32 @@ class currency extends rcube_plugin {
 
 		// Currency available with the user
 		$mycurrency = $ret['curr_available'];
+		
+		$rcmail->output->set_env('user_curr_avail', $mycurrency);
+		
+		// Environment Variable for storing the currency selected for the given mail
+		$rcmail->output->set_env('user_curr_fixed', 0);		
+		
+		// Adding Script for compose window
+		$this->include_script('currency_compose.js');
+		
+		// Adding Localization
+		$this->add_texts('localization', true);
 
-
+		// Displaying the value to the user
+		/*
 		$this->add_button(array(
 		'command' => 'plugin.currencyleft',
 		'label' => $this->gettext('currency.plugin_currencyleft') . ": " . $mycurrency,
 		'title' => 'currency.plugin_currencyleft',
 		'id' => 'rcmbtn_compose_currency'), 'toolbar');
-
+		*/
 		
 	}
 	
 	function compose_header_currency($args){
 		$new_div = '
-			<tr>
+			<tr id="compose-currency">
 			<td class="title">Currency</td>
 			<td class="editfield">
 			<input type="radio" name="_currency" id="compose-currency-0" tabindex="9" value="0" checked = true> 0 </input>
@@ -84,8 +96,6 @@ class currency extends rcube_plugin {
 		
 		return $args;
 	}
-
-	
 	
 	function message_list($args){
 		// Number of messages
@@ -121,16 +131,58 @@ class currency extends rcube_plugin {
 
 	function message_headers($args){
 		$this->load_config();
+		
 		// Getting the list of additional headers to be fetched from config		
+		
+
 		$additional_headers = rcmail::get_instance()->config->get('list_headers',array());
 		foreach($additional_headers as $header=>$value){
 			if('Currency-Attached' === $value){
-			$args['headers'][$value] = '3';
+				$rcmail = rcmail::get_instance();
+				
+				$myid = $rcmail->user->ID;
+				// Formulating query and fetching currency available
+				$query = "SELECT curr_available FROM users WHERE user_id=?";
+				$rcmail->db->query($query,$myid);
+				$ret = $rcmail->db->fetch_assoc();
+
+				// Currency available with the user
+				$mycurrency = $ret['curr_available'];
+				
+				$mycurrval = get_input_value('_currency',RCUBE_INPUT_POST);
+				if($mycurrval == null)
+					$mycurrval = 0;
+				$recipient_list = rtrim(rtrim($args['headers']['To'], " "), ",");			
+
+				$num_recipient = count(split("," , $recipient_list));			
+					
+				$newval = $mycurrency - ($mycurrval * $num_recipient);
+				
+				if($newval>=0){
+					// Current user id
+					$myid = $rcmail->user->ID;
+					// Formulating query and fetching currency available
+					$query = "UPDATE users SET curr_available = ? WHERE user_id=?";
+					$rcmail->db->query($query,$newval,$myid);
+
+						
+
+					$args['headers'][$value] =  '' .$mycurrval ;
+												//$rcmail->env->get['user_curr_fixed'];
+												//$rcmail->env->user_curr_fixed;
+				}
+				else{
+					$args['abort'] = true;
+					$args['message']= 'You dont have enough currency to attach.. Reduce the attached amount';	
+				}
 			}
 			else {
 			unset($args['headers'][$header]);
 			} 
 		}
+/*
+		
+*/
 	return $args;
 	}
 	
